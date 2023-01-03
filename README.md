@@ -4,7 +4,7 @@ Set beneficiaries to the assets in your wallet.  ERC-20, ERC-115 or ERC-721 toke
 
 Use it was a living will or as a backup for a lost private keys, trust that your assests are not lost forever in your wallet
 
- [Video Demo]() | 
+ [Video Demo](https://youtu.be/gJIGsA7b-E0) | 
  [Live Site](https://incase.vercel.app) | 
 
  | Mumbai | ------ Deployments ------ |

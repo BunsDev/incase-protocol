@@ -3,7 +3,7 @@ import UAuth from "@uauth/js";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const uauth = new UAuth({
-  clientID: "6553adfa-8cda-4722-84c6-9592666e7c17",
+  clientID: "a46749d6-9bea-4080-b5b6-f1cec0f9af85",
   redirectUri: "https://incase.vercel.app/dashboard",
   scope: "openid wallet email profile:optional social:optional",
 });

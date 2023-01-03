@@ -4,7 +4,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const uauth = new UAuth({
   clientID: "6553adfa-8cda-4722-84c6-9592666e7c17",
-  redirectUri: "http://localhost:3000",
+  redirectUri: "https://incase.vercel.app/dashboard",
   scope: "openid wallet email profile:optional social:optional",
 });
 

@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 
 string constant SVG_START = '<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" font-family="-apple-system,BlinkMacSystemFont,'
 "'Segoe UI','Helvetica Neue'"
-',Arial,sans-serif"><rect x="0" y="0" width="100%" height="100%" fill="#eee" rx="10%" /><g id="text" fill="black" font-size="80" font-weight="500" text-anchor="middle"><text x="50%" y="40%" font-weight="700">Expir3</text><text x="50%" y="65%">Legacy</text><text x="90%" y="90%" font-size="36" text-anchor="end">';
+',Arial,sans-serif"><rect x="0" y="0" width="100%" height="100%" fill="#eee" rx="10%" /><g id="text" fill="black" font-size="80" font-weight="500" text-anchor="middle"><text x="50%" y="40%" font-weight="700">INCASE</text><text x="50%" y="65%">LEGACY</text><text x="90%" y="90%" font-size="36" text-anchor="end">';
 string constant SVG_ERC20 = "ERC20";
 string constant SVG_ERC721 = "ERC721";
 string constant SVG_ERC1155 = "ERC1155";

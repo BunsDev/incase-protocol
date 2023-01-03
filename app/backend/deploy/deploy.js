@@ -20,14 +20,14 @@ async function main() {
   // console.log("gasUsed:" , receipt.gasUsed);
 
   
-  const Template = await hre.ethers.getContractFactory("My1155");
-  const contract = await Template.deploy();
+  // const Template = await hre.ethers.getContractFactory("My1155");
+  // const contract = await Template.deploy();
 
-  await contract.deployed();
+  // await contract.deployed();
 
-  console.log("My1155 Contract deployed to:", contract.address);
-  const receipt2 = await contract.deployTransaction.wait();
-  console.log("gasUsed:" , receipt2.gasUsed);
+  // console.log("My1155 Contract deployed to:", contract.address);
+  // const receipt2 = await contract.deployTransaction.wait();
+  // console.log("gasUsed:" , receipt2.gasUsed);
 
   // const Web3 = await hre.ethers.getContractFactory("MockNFT");
   // const web3 = await Web3.deploy();
@@ -40,14 +40,14 @@ async function main() {
  
 
 
-  // const Template = await hre.ethers.getContractFactory("Incase");
-  // const contract = await Template.deploy();
+  const Template = await hre.ethers.getContractFactory("Incase");
+  const contract = await Template.deploy();
 
-  // await contract.deployed();
+  await contract.deployed();
 
-  // console.log("Expir3 Contract deployed to:", contract.address);
-  // const receipt2 = await contract.deployTransaction.wait();
-  // console.log("gasUsed:" , receipt2.gasUsed);
+  console.log("Incase Contract deployed to:", contract.address);
+  const receipt2 = await contract.deployTransaction.wait();
+  console.log("gasUsed:" , receipt2.gasUsed);
   
 }
 

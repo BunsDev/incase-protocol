@@ -8,6 +8,7 @@ const defaultNetwork = 'localhost';
 const XINFIN_NETWORK_URL = process.env.XINFIN_NETWORK_URL;
 const XINFIN_PRIVATE_KEY = process.env.PRIVATE_KEY;
 
+
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */

@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <Head>
         <title>INCASE</title>
-        <meta name="description" content="Expir3" />
+        <meta name="description" content="Incase" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Landing />

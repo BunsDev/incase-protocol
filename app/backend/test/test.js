@@ -2,7 +2,7 @@ const { loadFixture } = require("@nomicfoundation/hardhat-network-helpers");
 const { anyValue } = require("@nomicfoundation/hardhat-chai-matchers/withArgs");
 const { expect } = require("chai");
 
-describe("Expir3", function () {
+describe("Incase", function () {
   // We define a fixture to reuse the same setup in every test.
   // We use loadFixture to run this setup once, snapshot that state,
   // and reset Hardhat Network to that snapshopt in every test.
@@ -18,7 +18,7 @@ describe("Expir3", function () {
     const temptoken = await TempToken.deploy();
     console.log("deployed token");
 
-    const Template = await hre.ethers.getContractFactory("Expir3");
+    const Template = await hre.ethers.getContractFactory("Incase");
     const contract = await Template.deploy(temptoken.address);
     console.log("deployed contract");
 

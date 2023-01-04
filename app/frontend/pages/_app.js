@@ -43,7 +43,7 @@ const { chains, provider } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-  appName: 'Expir3',
+  appName: 'Incase',
   chains,
 });
 
@@ -61,7 +61,7 @@ const App = ({ Component, pageProps }) => {
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider coolMode chains={chains}>
         <NextHead>
-          <title>Expir3</title>
+          <title>Incase</title>
         </NextHead>
         <Component {...pageProps} />
       </RainbowKitProvider>

@@ -19,7 +19,7 @@ describe("Incase", function () {
     console.log("deployed token");
 
     const Template = await hre.ethers.getContractFactory("Incase");
-    const contract = await Template.deploy(temptoken.address);
+    const contract = await Template.deploy();
     console.log("deployed contract");
 
     return {
@@ -55,7 +55,6 @@ describe("Incase", function () {
 
       //should turn on deadmans switch here
       //select recipients and amount
-      await contract.register(otherAccount.address, allowedAmount);
       // approve contract
       await temptoken.approve(contract.address, allowedAmount);
 
@@ -70,7 +69,6 @@ describe("Incase", function () {
 
       //should turn on deadmans switch here
       //select recipients and amount
-      await contract.register(otherAccount.address, allowedAmount);
       // approve contract
       await temptoken.approve(contract.address, allowedAmount);
 
@@ -84,7 +82,6 @@ describe("Incase", function () {
 
       //should turn on deadmans switch here
       //select recipients and amount
-      await contract.register(otherAccount.address, allowedAmount);
       // approve contract
       await temptoken.approve(contract.address, allowedAmount);
 

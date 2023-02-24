@@ -112,7 +112,7 @@ contract Incase is
     );
 
     /** @dev Settings up constructor to implement NFT token name */
-    constructor() ERC721("Incase", "EXP") {
+    constructor() ERC721("Incase", "Inc") {
         // We start NFT IDs in 1
         _tokenIdCounter.increment();
     }

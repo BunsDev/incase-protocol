@@ -54,11 +54,11 @@ const index = () => {
           <>
             {address && legacyCount > 0 && <CheckIn />}
 
-            <h2 className="text-3xl font-semibold self-start max-w-50">
+            <h2 className="text-3xl font-semibold max-w-50 justify-center">
               Register your beneficiary
             </h2>
 
-            <p className="text-xl self-start mt-2 w-11/12 text-gray-400 border-b-2 border-gray-300 pb-3">
+            <p className="text-xl mt-2 text-gray-400 border-b-2 border-gray-300 pb-3 justify-center">
               Schedule automatic payouts to accounts of your choice as your will
               or as a fall back.
             </p>

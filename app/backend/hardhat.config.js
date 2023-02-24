@@ -1,13 +1,13 @@
 require("@nomicfoundation/hardhat-toolbox");
-require('dotenv').config({ path: '../../.env' });
+require("dotenv").config({ path: "../../.env" });
 
-require('hardhat-deploy');
-require('@nomiclabs/hardhat-ethers');
+require("hardhat-deploy");
+require("@nomiclabs/hardhat-ethers");
 
-const defaultNetwork = 'localhost';
-const XINFIN_NETWORK_URL = process.env.XINFIN_NETWORK_URL;
-const XINFIN_PRIVATE_KEY = process.env.PRIVATE_KEY;
+const defaultNetwork = "hardhat";
 
+NEXT_PUBLIC_ALCHEMY_ID = "fp2SHb9VlSZ7d3H7B0cBL78PvdZk6ky0";
+PRIVATE_KEY = "abbdc088f548b48e1aa3a8e19d1684b7f02799635932d47f4ade309096585c46";
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -17,71 +17,31 @@ module.exports = {
   defaultNetwork,
 
   networks: {
-    localhost: {
-      chainId: 31337,
-    },
-
-    /////////
-    // L1 NETWORKS
-    /////////
-
-    // mainnet: {
-    //   chainId: 1,
-    //   url: `https://eth-mainnet.alchemyapi.io/v2/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`,
-    //   url: `https://mainnet.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA_ID}`,
-    //   accounts: [`${process.env.PRIVATE_KEY}`],
-    // },
-
-    // L1 TEST NETWORKS
-
-    // ropsten: {
-    //   chainId: 3,
-    //   url: `https://eth-ropsten.alchemyapi.io/v2/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`,
-    //   url: `https://ropsten.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA_ID}`,
-    //   accounts: [`${process.env.PRIVATE_KEY}`],
-    // },
-    // rinkeby: {
-    //   chainId: 4,
-    //   url: `https://eth-rinkeby.alchemyapi.io/v2/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`,
-    //   url: `https://rinkeby.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA_ID}`,
-    //   accounts: [`${process.env.PRIVATE_KEY}`],
-    // },
     goerli: {
       chainId: 5,
-      url: `https://eth-goerli.alchemyapi.io/v2/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`,
-      url: `https://goerli.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA_ID}`,
-      accounts: [`${process.env.PRIVATE_KEY}`],
+      // url: `https://eth-goerli.alchemyapi.io/v2/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`,
+      url: `https://eth-goerli.g.alchemy.com/v2/fp2SHb9VlSZ7d3H7B0cBL78PvdZk6ky0`,
+      accounts: [PRIVATE_KEY],
     },
-    // kovan: {
-    //   chainId: 42,
-    //   url: `https://eth-kovan.alchemyapi.io/v2/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`,
-    //   url: `https://kovan.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA_ID}`,
-    //   accounts: [`${process.env.PRIVATE_KEY}`],
-    // },
-
-    /////////
-    // L2 NETWORKS
-    /////////
-
-    // polygon: {
-    //   chainId: 137,
-    //   url: `https://polygon-mainnet.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`,
-    //   url: `https://polygon-mainnet.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA_ID}`,
-    //   accounts: [`${process.env.PRIVATE_KEY}`],
-    // },
-
-    // L2 TEST NETWORKS
 
     mumbai: {
       chainId: 80001,
-      url: `https://dimensional-patient-arrow.matic-testnet.discover.quiknode.pro/b0d1a3580a1576c880015164cf6cb5ded2496f25/`,
+      url: `https://warmhearted-burned-bird.matic-testnet.discover.quiknode.pro/82ca9558bba3ae4e43d164e72acbeda5fb7901c6`,
+      // url: `https://dimensional-patient-arrow.matic-testnet.discover.quiknode.pro/b0d1a3580a1576c880015164cf6cb5ded2496f25/`,
       // url: `https://polygon-mumbai.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA_ID}`,
-      accounts: [`${process.env.PRIVATE_KEY}`],
+      accounts: [PRIVATE_KEY],
     },
-    xinfin: {
-      chainId: 51,
-      url: XINFIN_NETWORK_URL,
-      accounts: [XINFIN_PRIVATE_KEY],
+
+    hyperspace: {
+      chainId: 3141,
+      url: "https://filecoin-hyperspace.chainstacklabs.com/rpc/v1",
+      accounts: [PRIVATE_KEY],
+    },
+
+    fantom: {
+      url: `https://rpc.ankr.com/fantom_testnet`,
+      chainId: 4002,
+      accounts: [`0x${PRIVATE_KEY}`],
     },
   },
   etherscan: {
@@ -94,5 +54,14 @@ module.exports = {
       default: 0, // here this will by default take the first account as deployer
     },
     tokenOwner: 1,
+  },
+  paths: {
+    sources: "./contracts",
+    tests: "./test",
+    cache: "./cache",
+    artifacts: "./artifacts",
+  },
+  mocha: {
+    timeout: 20000,
   },
 };

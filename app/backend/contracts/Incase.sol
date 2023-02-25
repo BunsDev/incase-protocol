@@ -1,9 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-// AutomationCompatible.sol imports the functions from both ./AutomationBase.sol and
-// ./interfaces/AutomationCompatibleInterface.sol
-// import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
@@ -61,6 +58,8 @@ contract Incase is
 
     /** @dev Mapping of all the Legacies by nftId */
     mapping(uint256 => Legacy) public legacyNFTs;
+
+    Legacy[] internal allNFTs;
 
     /** --- Events --- */
 
@@ -124,12 +123,35 @@ contract Incase is
         return ((timestamp / 1 days) % 365);
     }
 
+
     /** --- External  Functions --- */
 
     /** @notice Helper to see amount of legacies for user */
     function legacyCount(address testator) public view returns (uint256) {
         return legacies[testator].length;
     }
+
+    /** @notice Get all legacyNFTs where the caller is the beneficiary
+     * @return Array of all legacyNFTs where the caller is the beneficiary
+     */
+    function getBeneficiaryLegacies() public view returns (Legacy[] memory) {
+        uint256 count = 0;
+        for (uint256 i = 0; i < allNFTs.length; i++) {
+            if (allNFTs[i].beneficiary == msg.sender) {
+                count++;
+            }
+        }
+        Legacy[] memory result = new Legacy[](count);
+        uint256 index = 0;
+        for (uint256 i = 0; i < allNFTs.length; i++) {
+            if (allNFTs[i].beneficiary == msg.sender) {
+                result[index] = allNFTs[i];
+                index++;
+            }
+        }
+        return result;
+    }
+
 
     /** @notice Function for Testator to add Legacy */
     /** NFT Tokens with tokenID 0 will not work */
@@ -165,6 +187,15 @@ contract Incase is
             tokenId //, nftId
         );
 
+        //Add legacy to array of NFTs
+        allNFTs.push(Legacy(
+             msg.sender,
+            token,
+            beneficiary,
+            amount,
+            tokenId //, nftId
+        ));
+
         // Add Legacy to testator list
         legacies[msg.sender].push(nftId);
 
@@ -182,6 +213,9 @@ contract Incase is
         // If not registered, checkin
         if (notRegistered) checkIn();
     }
+
+
+   
 
     /** @notice Function for Testator to remove Legacy */
     // TODO: Add payment
@@ -357,16 +391,6 @@ contract Incase is
             );
     }
 
-    /** @notice Make the NFTs Non-Transferrable */
-    function _beforeTokenTransfer(
-        address from,
-        address to,
-        uint256 tokenId
-    ) internal override {
-        if (from != address(0) && to != address(0))
-            revert NonTransferrableToken();
-        super._beforeTokenTransfer(from, to, tokenId);
-    }
 
     /** -- Keepers Logic -- */
 
@@ -411,51 +435,5 @@ contract Incase is
     /** @dev Error for NFT Transfer Attemp */
     error NonTransferrableToken();
 
-
-    /** --- Extra Features --- */
-
-    // TODO: Frontend needs to ask for approve of all tokens to bequeath
-
-    /** @dev function to recover ERC20 tokens */
-    function withdrawToken(IERC20 _tokenAddress) public onlyOwner {
-        // require( _tokenAddress.transfer(msg.sender,  _tokenAddress.balanceOf(address(this))), "Unable to transfer");
-        require(
-            _tokenAddress.transfer(
-                msg.sender,
-                _tokenAddress.balanceOf(msg.sender)
-            ),
-            "Unable to transfer"
-        );
-    }
-
-    /* Not working for some reason with the require() */
-
-    /** @dev function to recover ERC1155 tokens */
-    function withdraw1155NFT(IERC1155 _tokenAddress, uint256 _id, uint256 _amount) public onlyOwner {
-      //  require(
-            _tokenAddress.safeTransferFrom
-            (   address(this),
-                msg.sender,
-                _id,
-                _amount,
-                ""
-            );
-      //      "Unable to transfer"
-      //  );
-    }
-
-    /** @dev function to recover ERC721 tokens */
-    function withdraw721NFT(IERC721 _tokenAddress, uint256 _id) public onlyOwner {
-       // require(
-            _tokenAddress.transferFrom(address(this), msg.sender,_id );
-       //     "Unable to transfer"
-      //  );
-    }
-
-    /** @dev function to recover ETH */
-    function withdraw() external onlyOwner {
-        (bool success, ) = payable(msg.sender).call{value: address(this).balance}("");
-        require(success);
-    }
     
 }

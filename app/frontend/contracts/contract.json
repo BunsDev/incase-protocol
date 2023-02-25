@@ -486,6 +486,46 @@
       "type": "function"
     },
     {
+      "inputs": [],
+      "name": "getBeneficiaryLegacies",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "testator",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "beneficiary",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct Legacy[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "address",
@@ -843,70 +883,8 @@
       ],
       "stateMutability": "view",
       "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "withdraw",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "contract IERC1155",
-          "name": "_tokenAddress",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_id",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "withdraw1155NFT",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "contract IERC721",
-          "name": "_tokenAddress",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_id",
-          "type": "uint256"
-        }
-      ],
-      "name": "withdraw721NFT",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "contract IERC20",
-          "name": "_tokenAddress",
-          "type": "address"
-        }
-      ],
-      "name": "withdrawToken",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
     }
   ],
-  
   "linkReferences": {},
   "deployedLinkReferences": {}
 }

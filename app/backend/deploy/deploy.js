@@ -40,14 +40,14 @@ async function main() {
  
 
 
-  // const Template = await hre.ethers.getContractFactory("Incase");
-  // const contract = await Template.deploy();
+  const Template = await hre.ethers.getContractFactory("Incase");
+  const contract = await Template.deploy();
 
-  // await contract.deployed();
+  await contract.deployed();
 
-  // console.log("Incase Contract deployed to:", contract.address);
-  // const receipt2 = await contract.deployTransaction.wait();
-  // console.log("gasUsed:" , receipt2.gasUsed);
+  console.log("Incase Contract deployed to:", contract.address);
+  const receipt2 = await contract.deployTransaction.wait();
+  console.log("gasUsed:" , receipt2.gasUsed);
   
 }
 

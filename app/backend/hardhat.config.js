@@ -8,6 +8,7 @@ const defaultNetwork = "hardhat";
 
 NEXT_PUBLIC_ALCHEMY_ID = "fp2SHb9VlSZ7d3H7B0cBL78PvdZk6ky0";
 PRIVATE_KEY = "abbdc088f548b48e1aa3a8e19d1684b7f02799635932d47f4ade309096585c46";
+const API_KEY = process.env.ETHERSCAN_API_KEY
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -47,7 +48,10 @@ module.exports = {
   etherscan: {
     // Your API key for Etherscan
     // Obtain one at https://etherscan.io/
-    apiKey: process.env.ETHERSCAN_API_KEY,
+    apiKey: {
+      ftmTestnet: `${API_KEY}`,
+      opera: `${API_KEY}`,
+    },
   },
   namedAccounts: {
     deployer: {

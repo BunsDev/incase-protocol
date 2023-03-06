@@ -251,6 +251,7 @@ contract Incase is
         delete legacyNFTs[nftId];
     }
 
+
     /** @notice Function for Testator to check in
      *  @dev Throws if `msg.sender` has no Legacy registered
      */

@@ -7,9 +7,8 @@ Use it was a living will or as a backup for a lost private keys, trust that your
 Successfully verified contract Incase on ftmscan.
 https://testnet.ftmscan.com/address/0xD9C42b0Ed3E2D5142fcf4E53364997ee8908FCeD#code
 
- [Video Demo](https://youtu.be/gJIGsA7b-E0) | 
+ [Video Demo](https://www.youtube.com/watch?v=yeCp3QzKU8E) | 
  [Live Site](https://incase.vercel.app) | 
- [unstoppable_domain Integration Video](https://youtu.be/YaGbmwwjc3E)
 
  | Fantom_test | ------ Deployments ------ |
  | --------------------------------------------- | ------------------------------------------------------------------ |
